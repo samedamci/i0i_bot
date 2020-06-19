@@ -8,6 +8,14 @@ Use `/start` or `/help` option to display available commands.
 
 ## Self-hosting
 
++ Clone this repo.
+```
+$ git clone https://git.samedamci.me/samedamci/i0i_bot && cd i0i_bot
+```
++ Install required modules.
+```
+$ pip3 install --user -r requirements.txt
+```
 + Create `environment` file with your bot token.
 ```
 TOKEN=your_token_here
