@@ -13,9 +13,10 @@ updater = None
 
 def start(update, context):
     update.message.reply_text("""
-Available commands:
+    Available commands:
 
-/short <link>  -  shorten link
+    /short <link>   -  shorten link
+    /paste <reply>  -  paste message to pastebin
 """)
 
 
@@ -28,6 +29,12 @@ def short(update, context):
         update.message.reply_text("You must give me URL as argument!")
 
 
+def paste(update, context):
+    m = update.message["reply_to_message"]["text"]
+    link = requests.post("https://bin.samedamci.me/form.php", data={"textarea": m})
+    update.message.reply_text(link.text)
+
+
 def main():
     global updater
     updater = Updater(settings.TOKEN, use_context=True)
@@ -35,9 +42,10 @@ def main():
     dispatcher.add_handler(CommandHandler("start", start))
     dispatcher.add_handler(CommandHandler("help", start))
     dispatcher.add_handler(CommandHandler("short", short))
+    dispatcher.add_handler(CommandHandler("paste", paste))
     updater.start_polling()
     updater.idle()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
