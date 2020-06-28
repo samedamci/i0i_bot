@@ -24,7 +24,9 @@ TOKEN=your_token_here
 
 ### With Docker
 
-+ Build image.
++ Download Docker image from [GitHub Packages](https://github.com/samedamci/i0i_bot/packages).
+
++ Alternatively build image itself.
 ```
 # docker build -t samedamci/i0i .
 ```
