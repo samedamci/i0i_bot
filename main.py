@@ -31,7 +31,7 @@ def short(update, context):
 
 def paste(update, context):
     m = update.message["reply_to_message"]["text"]
-    link = requests.post("https://bin.samedamci.me/form.php", data={"textarea": m})
+    link = requests.post("https://bin.samedamci.com/form.php", data={"textarea": m})
     update.message.reply_text(link.text)
 
 
